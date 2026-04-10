@@ -9,20 +9,21 @@ st.set_page_config(
     layout="wide"
 )
 
-# 2. CARGA DE DATOS OPTIMIZADA (Caché)
+# 2. Función de carga con caché para máxima velocidad en la web
 @st.cache_data
 def load_data():
-    # Intenta cargar Parquet si existe (es más rápido), si no, usa el CSV
     try:
-        # Cambia 'dataset.csv' por el nombre real de tu archivo
-        data = pd.read_csv("dataset.csv") 
-        return data
+        # Cargamos el archivo comprimido que generamos en Colab
+        return pd.read_parquet("Creditos.parquet")
     except Exception as e:
-        st.error(f"Error al cargar los datos: {e}")
+        st.error("No se encontró el archivo Creditos.parquet en el repositorio.")
         return pd.DataFrame()
 
 df = load_data()
-
+        # Cambia 'dataset.csv' por el nombre real de tu archivo
+        #data = pd.read_csv("dataset.csv") 
+        #return data
+    
 # 3. ESTILOS Y TÍTULOS
 st.title("📊 Análisis de Brechas y Equidad en el Crédito")
 st.markdown("""
