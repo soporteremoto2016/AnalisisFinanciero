@@ -23,7 +23,7 @@ def load_data():
 df = load_data()
 
 # 3. TÍTULOS
-st.title("📊 Análisis de Brechas y Equidad en el Crédito")
+st.title("📊 Colombia Credit Intelligence Análisis de Brechas y Equidad en el Crédito")
 st.markdown("""
 Este dashboard interactivo permite explorar las disparidades en tasas de interés y acceso a montos 
 según género, tipo de empresa y producto financiero.
